@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resume Screening</title>
+</head>
+<body>
+    <h2>Upload Resumes and Enter Job Description</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <textarea name="job_description" rows="10" cols="50" placeholder="Paste Job Description here..."></textarea><br><br>
+        <input type="file" name="resumes" multiple required><br><br>
+        <button type="submit">Rank Resumes</button>
+    </form>
+    
+    {% if scores %}
+        <h3>Ranking Results</h3>
+        <ul>
+            {% for name, score in scores %}
+                <li>{{ name }} - Score: {{ score }}%</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
